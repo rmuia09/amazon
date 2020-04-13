@@ -21,17 +21,20 @@ Enter credentials
     sleep  3s
 Submit form
     Click Button  xpath=//*[@id="login-submitBtn"]
-#    Wait Until Page Contains Element  xpath=//*[@id="login-tfaForm"]/div/div
+    Wait Until Page Contains Element  xpath=//*[@id="root"]/div/div/div/div[2]/div[1]
     sleep  3s
     mouse over  xpath=//*[@id="login-tfaCodeFld"]
-    click element  xpath=//*[@id="login-tfaCodeFld"]
-    sleep  3s
+    Wait Until Page Contains Element  xpath=//*[@id="login-tfaCodeFld"]
+#    click element  xpath=//*[@id="login-tfaCodeFld"]
     Input Text  xpath=//*[@id="login-tfaCodeFld"]  ${totp}
-#    Wait Until Page Contains Element  xpath=//*[@id="root"]/div/div[2]/div/div[2]
+    Select Frame  //*[@id="intercom-container"]/div/div[1]/iframe  # Select frame with id or name 'top-frame'
+    Click element  //*[@id="intercom-container"]/div/div/div[1]/div/div/span    # Click link 'example' in the selected frame
+#    sleep  6s
     Click Button  xpath=//*[@id="login-tfaSubmitBtn"]
     Wait Until Page Contains Element  xpath=//*[@id="root"]/div/div[2]/div/div[1]
+#    //*[@id="root"]/div/div[2]/div/div[1]
     click element  xpath=//*[@id="root"]/div/div[2]/div/div[1]
-    sleep  6s
+    sleep  2s
 #    ${my_new_variable} =  Set Variable  Something else
 #    Log  ${my_new_variable}
 #Submit form
