@@ -29,6 +29,7 @@ ${EMAIL_ADDRESS} =  richard+test15@azafinance.com
 ${PWD_FIELD} =  id=login-passwordFld
 ${PWD_OK} =   P@ssword2020!
 ${PWD_KO} =   Samuraitindi@2025
+${REQUEST_A_RATE_NARR} =  xpath=//h2[contains(text(), "Request a Rate")]
 ${ENVIRONMENT} =  stage
 &{URL}  stage=https://account-staging.tradebfx.com/signin  prod=https://account.tradebfx.com/signin
 #${RESULT}=  | run process | python | /Users/richardmuia/Documents/filename.py
@@ -48,3 +49,6 @@ Add recepient
 #    TradeBFX.Login
     TradeBFX.Recipient Add
 
+Add transactions
+    [Tags]  Smoke4
+    TradeBFX.Transactions Do

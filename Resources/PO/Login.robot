@@ -17,7 +17,7 @@ Login
     Submit form
 Enter credentials
     Input Text  ${EMAIL_FIELD}  ${EMAIL_ADDRESS}
-    Input Password   ${PWD_OK}    ${PWD_FIELD}
+    Input Password  ${PWD_FIELD}  ${PWD_OK}
     sleep  3s
 Submit form
     Click Button  xpath=//button[contains(@type,"submit")]      #  USE OF PARTIAL LOCATORS CONTAIN XPATH TYPE
@@ -42,10 +42,11 @@ Submit form
 #    Click element  //*[@id="intercom-container"]/div/div/div[1]/div/div/span    # This is the close intercom button
 #    sleep  6s
     Click Button  xpath=//*[@id="login-tfaSubmitBtn"]
-    Wait Until Page Contains Element  xpath=//h2[contains(text(), "Request a Rate")]   #  USE OF PARTIAL LOCATORS CONTAIN XPATH TEXT
+    Wait Until Page Contains Element  ${REQUEST_A_RATE_NARR}
+#    xpath=//h2[contains(text(), "Request a Rate")]   #  USE OF PARTIAL LOCATORS CONTAIN XPATH TEXT
 #    //*[@id="root"]/div/div[2]/div/div[1]
 #    //*[@id="root"]/div/div[2]/div/div[1]
-    click element  xpath=//h2[contains(text(), "Request a Rate")]
+    click element  ${REQUEST_A_RATE_NARR}
 #    //*[@id="root"]/div/div[2]/div/div[1]
     sleep  2s
 #    ${my_new_variable} =  Set Variable  Something else

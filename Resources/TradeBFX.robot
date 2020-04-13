@@ -22,3 +22,9 @@ Recipient Add
    LandingPage.Verify Page Loaded
    Login.Login
    Recipient.Add Recipient
+
+Transactions Do
+    LandingPage.Load
+    LandingPage.Verify Page Loaded
+    Login.Login
+    Transaction.Do Transactions
