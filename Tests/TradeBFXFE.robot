@@ -27,7 +27,7 @@ ${BROWSER} =  gc
 ${EMAIL_FIELD} =  id=login-emailFld
 ${EMAIL_ADDRESS} =  richard+test15@azafinance.com
 ${ENVIRONMENT} =  stage
-&{URL}  stage=https://account-staging.tradebfx.com/signin  prod=http://www.amazon.com
+&{URL}  stage=https://account-staging.tradebfx.com/signin  prod=https://account.tradebfx.com/signin
 #${RESULT}=  | run process | python | /Users/richardmuia/Documents/filename.py
 #${TOTP}=    | ${totp}
 

@@ -9,7 +9,7 @@ Library  pyotp
 #@{USERNAME} =  id=login-emailFld  richard+test15@azafinance.com
 #Example of running a python script
 ${totp}=  ${a}
-
+#${} =
 *** Keywords ***
 
 Login
@@ -20,20 +20,33 @@ Enter credentials
     Input Password  id=login-passwordFld    P@ssword2020!
     sleep  3s
 Submit form
-    Click Button  xpath=//*[@id="login-submitBtn"]
-    Wait Until Page Contains Element  xpath=//*[@id="root"]/div/div/div/div[2]/div[1]
+    Click Button  xpath=//button[contains(@type,"submit")]      #  USE OF PARTIAL LOCATORS CONTAIN XPATH TYPE
+#    //*[@id="login-submitBtn"]
+
+    Wait Until Page Contains Element   xpath=//div[@id='root']//div    # Use of relative parent/child/sibling relationships for xpath locator
+
+#  xpath=//*[@id="root"]//div[1]
+#       //*[@id="root"]/div/div[2]/div
+
+#    xpath=//*[@id="root"]/div/div/div/div[2]/div[1]  #Use of explicit wait selenium keyword
     sleep  3s
     mouse over  xpath=//*[@id="login-tfaCodeFld"]
-    Wait Until Page Contains Element  xpath=//*[@id="login-tfaCodeFld"]
+    Wait Until Page Contains Element  xpath=//input[@id='login-tfaCodeFld']
+#    css=input[id='login-tfaCodeFld']   #user defined locator using input tag and ID attribute
+
+    #login-tfaCodeFld
+#    xpath=//*[@id="login-tfaCodeFld"]
 #    click element  xpath=//*[@id="login-tfaCodeFld"]
     Input Text  xpath=//*[@id="login-tfaCodeFld"]  ${totp}
-    Select Frame  //*[@id="intercom-container"]/div/div[1]/iframe  # Select frame with id or name 'top-frame'
-    Click element  //*[@id="intercom-container"]/div/div/div[1]/div/div/span    # Click link 'example' in the selected frame
+#    Select Frame  //*[@id="intercom-container"]/div/div[1]/iframe  # This is intercom frame'
+#    Click element  //*[@id="intercom-container"]/div/div/div[1]/div/div/span    # This is the close intercom button
 #    sleep  6s
     Click Button  xpath=//*[@id="login-tfaSubmitBtn"]
-    Wait Until Page Contains Element  xpath=//*[@id="root"]/div/div[2]/div/div[1]
+    Wait Until Page Contains Element  xpath=//h2[contains(text(), "Request a Rate")]   #  USE OF PARTIAL LOCATORS CONTAIN XPATH TEXT
 #    //*[@id="root"]/div/div[2]/div/div[1]
-    click element  xpath=//*[@id="root"]/div/div[2]/div/div[1]
+#    //*[@id="root"]/div/div[2]/div/div[1]
+    click element  xpath=//h2[contains(text(), "Request a Rate")]
+#    //*[@id="root"]/div/div[2]/div/div[1]
     sleep  2s
 #    ${my_new_variable} =  Set Variable  Something else
 #    Log  ${my_new_variable}
@@ -99,7 +112,7 @@ Submit form
 
 #    Click Button  xpath=//*[@id="verificationPassed-startBtn"]
 
-    Wait Until Page Contains Element  xpath=//*[@id="root"]/div/div[2]/div/div[2]
-    Click Element  xpath=//*[@id="root"]/div/div[2]/div/div[2]
-    sleep  5s
+#    Wait Until Page Contains Element  xpath=//*[@id="root"]/div/div[2]/div/div[2]
+#    Click Element  xpath=//*[@id="root"]/div/div[2]/div/div[2]
+#    sleep  5s
 
