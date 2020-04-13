@@ -3,6 +3,7 @@ Resource   ../Resources/PO/LandingPage.robot
 Resource   ../Resources/PO/Login.robot
 Resource   ../Resources/PO/LoginKO.robot
 Resource   ../Resources/PO/Recipient.robot
+Resource   ../Resources/PO/Transaction.robot
 
 
 

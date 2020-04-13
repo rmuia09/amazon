@@ -1,35 +1,46 @@
 *** Variables ***
 #${MY_VALUE} =  100
 ${you_send_field}=  //*[@id="requestRate-youSendFld_field"]
-${you_receive_field}=  //*[@id="requestRate-recipientGetsFld_field"]
+#${you_receive_field}=  //*[@id="requestRate-recipientGetsFld_field"]
 
 *** Keywords ***
 Do Transactions
-    Input details
-    Submit
+    Txn details
+    Submit for verification
 #    Click form
-Input details
+Txn details
 #    sleep  15s
 # HOME PAGE
    Wait Until Page Contains Element  ${REQUEST_A_RATE_NARR}
    Click Element  ${REQUEST_A_RATE_NARR}
 
 #  [Documentation]  Select Receipient
-    Input Text  ${you_send_field}  10000000
-    click element  xpath=//*[@id="mui-component-select-currency"]
-    Execute JavaScript    window.scrollTo(1, document.body.scrollHeight)
-#     Click Image id=select-search-icon
-     Mouse Over  xpath=//*[@id="requestRate-youSendFld-menu-item-4"]
-     Click element  xpath=//*[@id="requestRate-youSendFld-menu-item-4"]
+    click element  xpath=//*[@id="requestRate-youSendFld_container"]/div[2]
 
-     click element  xpath=//*[@id="mui-component-select-currency"]
-     Execute JavaScript    window.scrollTo(1, document.body.scrollHeight)
-     Mouse Over  xpath=//*[@id="requestRate-recipientGetsFld-menu-item-2"]
-     Click element  xpath=//*[@id="requestRate-recipientGetsFld-menu-item-2"]
+#    Execute JavaScript    window.scrollTo(1, document.body.scrollHeight)
+
+     Mouse Over  xpath=//*[@id="requestRate-youSendFld-menu-item-3"]/div
+     Click element  xpath=//div[contains(text(), "Ghanaian Cedi")]
+
+     click element  xpath=//*[@id="requestRate-recipientGetsFld_container"]/div[2]
+#     Execute JavaScript    window.scrollTo(1, document.body.scrollHeight)
+
+     Mouse Over  xpath=//*[@id="requestRate-recipientGetsFld-menu-item-2"]/div
+     Click element  xpath=//div[contains(text(), "Great British Pounds")]
 #     Input Text  xpath=//*[@id="country-dropdown"]/div[1]/div[1]/div[1] albania
-Submit
-     click button  xpath=//*[@id="requestRate-continueBtn"]/span[1]
-     sleep  3s
+     Input Text  ${you_send_field}  100000
+Submit for verification
+     wait until page contains element  xpath=//*[@id="requestRate-continueBtn"]
+               ##     sleep  3s
+     click button  xpath=//button[contains(@id,"requestRate")]
+#     //span[contains(text(), "CONTINUE")]
+     Wait Until Page Contains  Transaction Details
+     sleep  1s
+
+
+
+
+
 
 #*** Test Cases ***
 #Testing a true IF statement
