@@ -26,6 +26,9 @@ ${BROWSER} =  gc
 #${START_URL} =  https://account-staging.tradebfx.com/signin
 ${EMAIL_FIELD} =  id=login-emailFld
 ${EMAIL_ADDRESS} =  richard+test15@azafinance.com
+${PWD_FIELD} =  id=login-passwordFld
+${PWD_OK} =   P@ssword2020!
+${PWD_KO} =   Samuraitindi@2025
 ${ENVIRONMENT} =  stage
 &{URL}  stage=https://account-staging.tradebfx.com/signin  prod=https://account.tradebfx.com/signin
 #${RESULT}=  | run process | python | /Users/richardmuia/Documents/filename.py
@@ -37,11 +40,11 @@ Login for valid user
     TradeBFX.Login
 
 Login for invalid user
-    [Tags]  Incorrect Login
+    [Tags]  Smoke2
     TradeBFX.LoginKO
 
 Add recepient
-    [Tags]  Smoke2
+    [Tags]  Smoke3
 #    TradeBFX.Login
     TradeBFX.Recipient Add
 

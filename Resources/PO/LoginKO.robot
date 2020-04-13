@@ -11,8 +11,8 @@ BadLogin
     Submit
 
 Enter bad credentials
-    Input Text  id=login-emailFld       richard@azafinance.com
-    Input Password  id=login-passwordFld    Samuraitindi@2025
+    Input Text  ${EMAIL_FIELD}  ${EMAIL_ADDRESS}
+    Input Password  ${PWD_FIELD}    ${PWD_KO}
 
 Submit
     Click Button  xpath=//*[@id="login-submitBtn"]

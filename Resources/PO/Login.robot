@@ -17,7 +17,7 @@ Login
     Submit form
 Enter credentials
     Input Text  ${EMAIL_FIELD}  ${EMAIL_ADDRESS}
-    Input Password  id=login-passwordFld    P@ssword2020!
+    Input Password   ${PWD_OK}    ${PWD_FIELD}
     sleep  3s
 Submit form
     Click Button  xpath=//button[contains(@type,"submit")]      #  USE OF PARTIAL LOCATORS CONTAIN XPATH TYPE
